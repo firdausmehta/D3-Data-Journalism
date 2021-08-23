@@ -1,7 +1,7 @@
 # D3 Homework - Data Journalism and D3
 
 ## Purpose
-* The purpose of this assignment was to use the data set from US Census to invesitigate rates of income, obesity, poverty, etc. by state to build a scatterplot
+* The purpose of this assignment was to use the data set from the US Census to investigate rates of income, obesity, poverty, etc. by state to build a scatterplot
 * The dataset: https://data.census.gov/cedsci/
 
 ## Key Skills
