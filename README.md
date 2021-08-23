@@ -11,8 +11,7 @@
 * tooltips
 
 ### Step 1 - Create a Skeleton
-* Before attempting to plot, I first load in the csv and did a `console.log` to make sure I correctly loaded the csv
-*Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.*
+* Before attempting to plot, I first load in the CSV and did a `console.log` to make sure I correctly loaded the CSV
 * Next, I made sure that my margins were appropriate so that I can properly do a scatterplot
 * This assignment had two parts - main assignment and bonus assignment. I first did the main assignment to make sure that I could get the most basic scatter plot.
 
