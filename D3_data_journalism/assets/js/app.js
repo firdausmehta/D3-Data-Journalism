@@ -43,3 +43,72 @@ function xScale(censusData, chosenXAxis) {
 
     return xLinearScale;
 }
+//a function for updating y-scale variable upon click of label
+function yScale(censusData, chosenYAxis) {
+  //scales
+  let yLinearScale = d3.scaleLinear()
+    .domain([d3.min(censusData, d => d[chosenYAxis]) * 0.8,
+      d3.max(censusData, d => d[chosenYAxis]) * 1.2])
+    .range([height, 0]);
+
+  return yLinearScale;
+}
+//a function for updating the xAxis upon click
+function renderXAxis(newXScale, xAxis) {
+  let bottomAxis = d3.axisBottom(newXScale);
+
+  xAxis.transition()
+    .duration(2000)
+    .call(bottomAxis);
+
+  return xAxis;
+}
+
+//function used for updating yAxis variable upon click
+function renderYAxis(newYScale, yAxis) {
+  var leftAxis = d3.axisLeft(newYScale);
+
+  yAxis.transition()
+    .duration(2000)
+    .call(leftAxis);
+
+  return yAxis;
+}
+
+//a function for updating the circles with a transition to new circles 
+function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
+
+    circlesGroup.transition()
+      .duration(2000)
+      .attr('cx', data => newXScale(data[chosenXAxis]))
+      .attr('cy', data => newYScale(data[chosenYAxis]))
+
+    return circlesGroup;
+}
+
+//function for updating STATE labels
+function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
+
+    textGroup.transition()
+      .duration(2000)
+      .attr('x', d => newXScale(d[chosenXAxis]))
+      .attr('y', d => newYScale(d[chosenYAxis]));
+
+    return textGroup
+}
+//function to stylize x-axis values for tooltips
+function styleX(value, chosenXAxis) {
+
+    //style based on variable
+    //poverty
+    if (chosenXAxis === 'poverty') {
+        return `${value}%`;
+    }
+    //household income
+    else if (chosenXAxis === 'income') {
+        return `${value}`;
+    }
+    else {
+      return `${value}`;
+    }
+}
