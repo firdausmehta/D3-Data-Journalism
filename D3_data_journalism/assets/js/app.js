@@ -171,3 +171,23 @@ d3.csv('./assets/data/data.csv').then(function(censusData) {
       data.healthcare = +data.healthcare;
       data.poverty = +data.poverty;
   });
+
+  //create linear scales
+  var xLinearScale = xScale(censusData, chosenXAxis);
+  var yLinearScale = yScale(censusData, chosenYAxis);
+
+  //create x axis
+  var bottomAxis = d3.axisBottom(xLinearScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
+
+  //append X
+  var xAxis = chartGroup.append('g')
+    .classed('x-axis', true)
+    .attr('transform', `translate(0, ${height})`)
+    .call(bottomAxis);
+
+  //append Y
+  var yAxis = chartGroup.append('g')
+    .classed('y-axis', true)
+    //.attr
+    .call(leftAxis);
