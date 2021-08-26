@@ -304,3 +304,26 @@ xLabelsGroup.selectAll('text')
 
       //update tooltip
       circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+      //change of classes changes text
+      if (chosenXAxis === 'poverty') {
+        povertyLabel.classed('active', true).classed('inactive', false);
+        ageLabel.classed('active', false).classed('inactive', true);
+        incomeLabel.classed('active', false).classed('inactive', true);
+      }
+      else if (chosenXAxis === 'age') {
+        povertyLabel.classed('active', false).classed('inactive', true);
+        ageLabel.classed('active', true).classed('inactive', false);
+        incomeLabel.classed('active', false).classed('inactive', true);
+      }
+      else {
+        povertyLabel.classed('active', false).classed('inactive', true);
+        ageLabel.classed('active', false).classed('inactive', true);
+        incomeLabel.classed('active', true).classed('inactive', false);
+      }
+    }
+  });
+//y axis lables event listener
+yLabelsGroup.selectAll('text')
+  .on('click', function() {
+    var value = d3.select(this).attr('value');
