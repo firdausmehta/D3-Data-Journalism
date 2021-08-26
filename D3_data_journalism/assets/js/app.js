@@ -234,3 +234,45 @@ var ageLabel = xLabelsGroup.append('text')
 .attr('y', 40)
 .attr('value', 'age')
 .text('Age (Median)');  
+
+var incomeLabel = xLabelsGroup.append('text')
+.classed('aText', true)
+.classed('inactive', true)
+.attr('x', 0)
+.attr('y', 60)
+.attr('value', 'income')
+.text('Household Income (Median)')
+
+//create a group for Y labels
+var yLabelsGroup = chartGroup.append('g')
+.attr('transform', `translate(${0 - margin.left/4}, ${height/2})`);
+
+var healthcareLabel = yLabelsGroup.append('text')
+.classed('aText', true)
+.classed('active', true)
+.attr('x', 0)
+.attr('y', 0 - 20)
+.attr('dy', '1em')
+.attr('transform', 'rotate(-90)')
+.attr('value', 'healthcare')
+.text('Without Healthcare (%)');
+
+var smokesLabel = yLabelsGroup.append('text')
+.classed('aText', true)
+.classed('inactive', true)
+.attr('x', 0)
+.attr('y', 0 - 40)
+.attr('dy', '1em')
+.attr('transform', 'rotate(-90)')
+.attr('value', 'smokes')
+.text('Smoker (%)');
+
+var obesityLabel = yLabelsGroup.append('text')
+.classed('aText', true)
+.classed('inactive', true)
+.attr('x', 0)
+.attr('y', 0 - 60)
+.attr('dy', '1em')
+.attr('transform', 'rotate(-90)')
+.attr('value', 'obesity')
+.text('Obese (%)');
