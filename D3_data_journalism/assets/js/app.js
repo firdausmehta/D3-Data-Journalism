@@ -276,3 +276,31 @@ var obesityLabel = yLabelsGroup.append('text')
 .attr('transform', 'rotate(-90)')
 .attr('value', 'obesity')
 .text('Obese (%)');
+
+//update the toolTip
+var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+//x axis event listener
+xLabelsGroup.selectAll('text')
+  .on('click', function() {
+    var value = d3.select(this).attr('value');
+
+    if (value != chosenXAxis) {
+
+      //replace chosen x with a value
+      chosenXAxis = value; 
+
+      //update x for new data
+      xLinearScale = xScale(censusData, chosenXAxis);
+
+      //update x 
+      xAxis = renderXAxis(xLinearScale, xAxis);
+
+      //upate circles with a new x value
+      circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+      //update text 
+      textGroup = renderText(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+      //update tooltip
+      circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
