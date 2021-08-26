@@ -17,18 +17,7 @@
 
 ### Step 2 - Plot basic scatterplot
 * The main assigment required to create a scatter plot between two of the data variables such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
-* Once the scatter plot was created, I added a state abbreviations to each circle. 
-```
- var circleText = chartGroup.selectAll()
-    .data(data)
-    .enter()
-    .append("text")
-    .text(d => d.abbr)
-    .attr("x", d => xLinearScale(d[xProperty])) 
-    .attr("y", d => yLinearScale(d[yProperty])) 
-    .attr("class", "stateText") 
-    .attr("font-size", "9");
-```
+
 ### Step 3 - Bonus
 * The bonus portion required additional variables and tooltip with interactions.
 
