@@ -346,3 +346,23 @@ yLabelsGroup.selectAll('text')
 
       //update tooltips
       circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+      //Change of the classes changes text
+      if (chosenYAxis === 'obesity') {
+        obesityLabel.classed('active', true).classed('inactive', false);
+        smokesLabel.classed('active', false).classed('inactive', true);
+        healthcareLabel.classed('active', false).classed('inactive', true);
+      }
+      else if (chosenYAxis === 'smokes') {
+        obesityLabel.classed('active', false).classed('inactive', true);
+        smokesLabel.classed('active', true).classed('inactive', false);
+        healthcareLabel.classed('active', false).classed('inactive', true);
+      }
+      else {
+        obesityLabel.classed('active', false).classed('inactive', true);
+        smokesLabel.classed('active', false).classed('inactive', true);
+        healthcareLabel.classed('active', true).classed('inactive', false);
+      }
+    }
+  });
+});
