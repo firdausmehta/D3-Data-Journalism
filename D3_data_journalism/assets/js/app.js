@@ -327,3 +327,22 @@ xLabelsGroup.selectAll('text')
 yLabelsGroup.selectAll('text')
   .on('click', function() {
     var value = d3.select(this).attr('value');
+
+    if(value !=chosenYAxis) {
+      //replace chosenY with value  
+      chosenYAxis = value;
+
+      //update Y scale
+      yLinearScale = yScale(censusData, chosenYAxis);
+
+      //update Y axis 
+      yAxis = renderYAxis(yLinearScale, yAxis);
+
+      //Udate CIRCLES with new y
+      circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+      //update TEXT with new Y values
+      textGroup = renderText(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
+      //update tooltips
+      circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
